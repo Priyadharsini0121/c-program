@@ -1,0 +1,81 @@
+// employee
+#include<iostream>
+
+using namespace std;
+class Employee
+{
+public:
+float basicSalary;
+float greatestSalary;
+int metro=150;
+int local=100;
+
+int ta;
+float total,hra,da,cps,sip=180,NetSalary,GrossSalary;
+
+void getDetails();
+void display();
+void Net_salary();
+void gross_salary();
+
+};
+void Employee :: getDetails()
+{
+
+cout<<"basic salary is:";
+cin>>basicSalary;
+cout<<"greatest salary is:";
+cin>>greatestSalary;
+
+
+}
+void Employee :: display()
+{
+
+total=basicSalary+greatestSalary;
+
+    cout<<"Total is:"<<total<<endl;
+    hra=((0.03*basicSalary)+greatestSalary);
+   
+    cout<<"HRA is:"<<hra<<endl;
+    da=((0.21*basicSalary)+greatestSalary);
+    cout<<"DA is:"<<da<<endl;
+    cout<<"\ntravelling charge is 100 or 150:";
+cin>>ta;
+
+if(ta==150)
+{
+cout<<"\ntravelling is through metro so charge is "<<metro;
+}
+
+else
+{
+cout<<"\ntravelling  is through local so charge is "<<local<<endl;
+}
+cout<<"ta is:"<<ta<<endl;
+cps=((0.1*basicSalary)+greatestSalary);
+cout<<"CPS is:"<<cps<<endl;
+}
+
+void Employee :: gross_salary()
+{    
+   
+GrossSalary=basicSalary+greatestSalary+hra+da+ta;
+cout<<"Gross salary is:"<<GrossSalary<<endl;
+}
+
+void Employee :: Net_salary()
+{
+
+    NetSalary=GrossSalary-cps-sip;
+cout<<"Net salary is:"<<NetSalary<<endl;
+}
+int main()
+{
+Employee e;
+e.getDetails();
+e.display();
+e.gross_salary();
+e.Net_salary();
+return 0;
+}
